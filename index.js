@@ -11,6 +11,7 @@
         execFile = require('child_process').execFile,
         fdf = require('utf8-fdf-generator'),
         _ = require('lodash'),
+        os = require('os'),
         fs = require('fs');
 
     var pdffiller = {
@@ -109,7 +110,7 @@
             var randomSequence = Math.random().toString(36).substring(7);
             var currentTime = new Date().getTime();
             var tempFDFFile =  "temp_data" + currentTime + randomSequence + ".fdf",
-                tempFDF = (typeof tempFDFPath !== "undefined"? tempFDFPath + '/' + tempFDFFile: tempFDFFile),
+                tempFDF = (typeof os.tmpdir() + '/' + tempFDFFile),
 
                 formData = fdf.generator( fieldValues, tempFDF );
 

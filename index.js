@@ -110,7 +110,7 @@
             var randomSequence = Math.random().toString(36).substring(7);
             var currentTime = new Date().getTime();
             var tempFDFFile =  "temp_data" + currentTime + randomSequence + ".fdf",
-                tempFDF = (typeof os.tmpdir() + '/' + tempFDFFile),
+                tempFDF = (os.tmpdir() + '/' + tempFDFFile),
 
                 formData = fdf.generator( fieldValues, tempFDF );
 
